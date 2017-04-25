@@ -26,15 +26,24 @@ public class SimilarityFinderTest {
         int[] seq2 = {};
         final double expected = 1.0d;
         double result = similarityFinder.calculateJackardSimilarity(seq1, seq2);
-        assertThat(result,is(expected));
+        assertThat(result, is(expected));
     }
 
     @Test
     public void calculateJackardSimilarityForOneEmptySequence() throws Exception {
-        int[] seq1 = {1,2,3};
+        int[] seq1 = {1, 2, 3};
         int[] seq2 = {};
         final double expected = 0.0d;
         double result = similarityFinder.calculateJackardSimilarity(seq1, seq2);
-        assertThat(result,is(expected));
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void calculateJackardSimilarityForEqualSequences() throws Exception {
+        int[] seq1 = {1, 2, 3};
+        int[] seq2 = {1, 2, 3};
+        final double expected = 1.0d;
+        double result = similarityFinder.calculateJackardSimilarity(seq1, seq2);
+        assertThat(result, is(expected));
     }
 }
